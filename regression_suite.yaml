@@ -1,0 +1,29 @@
+name: Regression
+
+on:
+  push:
+    paths:
+      - 'regression_suite.yaml' # This triggers the workflow when regression_workflow.yml file is pushed.
+
+jobs:
+  run_regression_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Clean directories
+      run: |
+        # Clean the regression_test_json directory
+        rm -rf .././reports/regression_test_json/*
+        # Clean the regression test output folder
+        rm -rf .././reports/regression_test_output/*
+    - name: Regression Tests Workflow
+      run: |
+
+        pytest ../test/testDDLCommands.py --html=output_testDDLCommands.html
+        pytest ../testDDLCommORM.py --html=output_testDDLCommORM.html
+        pytest ../test/testDMLCommORM.py --html=output_testDMLCommORM.html
