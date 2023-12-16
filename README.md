@@ -9,7 +9,7 @@ SETUP
 Steps to Set up the Framework on Local Repository
   1. Checkout the repository from GIT by below command
 
-     -- git clone https://github.com/amits0003/PytestAutomationAssignment/edit/main/README.md
+     -- git clone https://github.com/amits0003/PytestAutomationAssignment.git
 
   2. open the repository in PyCharm / any other IDE and then navigate to Terminal
 
