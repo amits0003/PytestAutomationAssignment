@@ -27,9 +27,9 @@ def run_tests_and_generate_individual_reports():
             subprocess.run(command, shell=True)
             individual_reports.append(output_html_report)
 
-    combined_report_path = f"combined_report.html"
-    combine_command = f"{os.path.join(parent_directory, '.venv', 'Scripts', 'pytest')} {' '.join(individual_reports)} --html={combined_report_path}"
-    subprocess.run(combine_command, shell=True)
+    # combined_report_path = f"combined_report.html"
+    # combine_command = f"{os.path.join(parent_directory, '.venv', 'Scripts', 'pytest')} {' '.join(individual_reports)} --html={combined_report_path}"
+    # subprocess.run(combine_command, shell=True)
 
 
 if __name__ == "__main__":
