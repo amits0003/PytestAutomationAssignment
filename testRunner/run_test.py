@@ -22,13 +22,14 @@ def run_tests_and_generate_individual_reports():
     for test_file in test_files:
         if not test_file.startswith("__"):
             output_html_report = f"output_{test_file}.html"
-            command = f"pytest {test_file} --html={output_html_report}"
+            # command = f"pytest {test_file} --html={output_html_report}"
+            command = f"\"{os.path.join(parent_directory, '.venv', 'Scripts', 'pytest')}\" {test_file} --html={output_html_report}"
             subprocess.run(command, shell=True)
             individual_reports.append(output_html_report)
 
-    # combined_report_path = os.path.join(current_directory, 'combined_report.html')
-    # combine_command = f"pytest {' '.join(individual_reports)} --html={combined_report_path}"
-    # subprocess.run(combine_command, shell=True)
+    combined_report_path = os.path.join(current_directory, 'combined_report.html')
+    combine_command = f"pytest {' '.join(individual_reports)} --html={combined_report_path}"
+    subprocess.run(combine_command, shell=True)
 
 
 if __name__ == "__main__":
