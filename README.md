@@ -38,5 +38,34 @@ Steps to Set up the Framework on Local Repository
 Now the Environment set up is completed...
 
 
+Steps to Run the Test Scripts - 
+
+Pre-Requisites - Make Sure that the Python 3.8 is installed in the Local System.
+
+1. Clone the Directory to a Folder
+2. Activate the Virtual Environment using "python -m venv venv"
+3. activate terminal to the root folder of the project.
+4. Install the requirements using "pip install -r requirements.txt"
+
+# There are two ways to run the test Scripts 
+
+**Running the individual test Scripts *
+1. navigate to the test Script folder
+2. Run the individual test scripts using "pytest test_DDLCommands.py --html='output_1.html' " 
+3. similarly run the test from all the other files
+
+
+**Running all the test Scripts using run_test.py file ==>
+
+1. Navigate to the testRunner folder in command terminal
+2. run the command "python run_test.py"
+
+this way all the test will be executed and their html report will be saved to the test folder.
+
+
+
+
+
+
 
 
