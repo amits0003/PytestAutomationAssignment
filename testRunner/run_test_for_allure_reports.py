@@ -20,20 +20,21 @@ def run_tests_and_generate_allure_report():
     # Run all test files using pytest and generate individual allure reports
     for test_file in test_files:
         if not test_file.startswith("__"):
-            allure_results_directory = f"..\\allure-results\\allure-results-{test_file}"
+            allure_results_directory = f"..\\allure-results\\json" #\\allure-results-{test_file}"
             command = f"\"{os.path.join(parent_directory, '.venv', 'Scripts', 'pytest')}\" {test_file} --alluredir={allure_results_directory}"
             subprocess.run(command, shell=True)
 
     # Combine individual Allure reports into a single report
-    combined_allure_report_directory = "..\\allure-results\\allure-results-combined"
-    allure_results_directories = [f'..\\allure-results\\allure-results-{test_file}' for test_file in test_files if
-                                  not test_file.startswith("__")]
+    # combined_allure_report_directory = "..\\allure-results\\allure-results-combined"
+    # allure_results_directories = [f'..\\allure-results\\allure-results-{test_file}' for test_file in test_files if
+    #                               not test_file.startswith("__")]
 
-    if allure_results_directories:
-        command = f"allure generate --clean {' '.join(allure_results_directories)} -o {combined_allure_report_directory}"
-        subprocess.run(command, shell=True)
-    else:
-        print("No Allure results directories found.")
+    # if allure_results_directories:
+        # command = f"allure generate --clean {' '.join(allure_results_directories)} -o {combined_allure_report_directory}"
+    # command = f"allure generate --clean {allure_results_directory} -o {combined_allure_report_directory}"
+    # subprocess.run(command, shell=True)
+    # else:
+    #     print("No Allure results directories found.")
 
 
 if __name__ == "__main__":
