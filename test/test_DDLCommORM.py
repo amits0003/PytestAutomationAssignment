@@ -1,3 +1,9 @@
+import os
+import sys
+
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, project_root)
+
 import unittest
 from unittest.mock import patch
 from sqlalchemy import create_engine, inspect, Integer, String
